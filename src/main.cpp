@@ -1,17 +1,24 @@
-#include <libopencm3/stm32/gpio.h>
-#include <libopencm3/stm32/rcc.h>
+#include <periphery/Led.h>
 
+using g_OnboardLed = Led<GPIOD, GPIO15, RCC_GPIOD>;
 
-int main () {
+inline void delay(volatile uint32_t cycles) {
+    while (cycles--);
+}
 
-     rcc_periph_clock_enable(RCC_GPIOD);
-     gpio_mode_setup(GPIOD, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO15);
-     
-     while (true) {
+void init() {
+    g_OnboardLed::init();
+}
 
-          gpio_toggle(GPIOD, GPIO15);
-		for (volatile uint32_t i = 0; i < 1000000; i++);
+void update() {
+    g_OnboardLed::toggle();
+    delay(1'000'000);
+}
 
-     }
-
+[[noreturn]]
+int main() {
+    init();
+    while (true) {
+        update();
+    }
 }

@@ -20,8 +20,6 @@ Visual Studio Code c плагинами ():
 
 ## Настройка и сборка проекта
 
----
-
 # Linux
 
 ## Настройка
@@ -34,8 +32,6 @@ cmake -B build
 
 Будет создана директория `build/` с файлами конфигурации.
 
----
-
 ## Сборка проекта
 
 В том же терминале выполните:
@@ -43,8 +39,6 @@ cmake -B build
 ```
 cmake --build build
 ```
-
----
 
 # Windows
 
@@ -65,8 +59,6 @@ build/debug
 
 и сгенерирует файлы сборки согласно пресету `debug`.
 
----
-
 ## Сборка проекта (Build)
 
 В том же терминале выполните:
@@ -80,8 +72,6 @@ cmake --build --preset app-debug
 ```
 build/debug
 ```
-
----
 
 ## Настройка IntelliSense в VS Code
 
@@ -97,8 +87,6 @@ ${workspaceFolder}/build/debug/compile_commands.json
 ```
 
 Сохраните изменения.
-
----
 
 ## VS Code не видит Ninja / Make / Toolchain / Printf
 
